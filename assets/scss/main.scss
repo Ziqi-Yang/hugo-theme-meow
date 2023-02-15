@@ -1,0 +1,27 @@
+body {
+		font-size: 18px;
+		min-height: 100%;
+
+		display: flex;
+		flex-flow: row wrap;
+
+		> * {
+				flex: 1 100%;
+		}
+
+		div#nav-border {
+				display: flex;
+				flex-flow: row wrap;
+				nav#nav {
+						width: 40%;
+						margin: 0 auto;
+						display: flex;
+						justify-content: space-around;
+				}
+		}
+
+		div#content {
+				margin: 0 15% 0 10%;
+		}
+}
+

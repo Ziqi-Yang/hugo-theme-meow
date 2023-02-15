@@ -1,0 +1,3 @@
+* Hugo Theme Turotial
+1. https://cloudcannon.com/community/learn/hugo-tutorial/
+2. https://retrolog.io/blog/creating-a-hugo-theme-from-scratch/

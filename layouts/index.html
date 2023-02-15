@@ -1,0 +1,40 @@
+{{ define "t_headers"}}
+{{ $style := resources.Get "scss/index.scss" | resources.ToCSS | resources.Minify }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}
+
+{{ define "main" }}
+
+<header>
+    <h1>{{ $.Site.Title }}</h1>
+    {{- if $.Site.Params.theme_config.show_description -}}
+		<p>{{ $.Site.Params.description }}</p>
+    {{- end -}}
+</header>
+<hr id="mainHr"/>
+<div class="indexes">
+	{{range .Site.Sections}}
+	<!-- dont look into posts section, since It contains all the posts of all sections -->
+	{{if not (eq .Section "posts")}}
+	<h3>{{.Section}}</h3>
+	<ul class="contents">
+		<!-- display first 10 pages -->
+		{{ $postLimit := 10}}
+    {{ range first $postLimit .Paginator.Pages }}
+    <li>
+			<a href='{{.Permalink}}'>{{.Title}}</a>
+		</li>
+    {{ end }}
+
+		{{if gt (len .Paginator.Pages) $postLimit }}
+		{{$sec := .Section}}
+		<a href='{{with .Site.GetPage "section" $sec}}{{.Permalink}}{{end}}'>More
+		</a>
+		{{end}}
+  </ul>
+	<hr/>
+	{{end}}
+	{{end}}
+</div>
+
+{{ end }}

@@ -1,0 +1,7 @@
+{{ $style := resources.Get "scss/main.scss" | resources.ToCSS | resources.Minify }}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ $style.Permalink }}">
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+</head>

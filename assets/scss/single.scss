@@ -1,0 +1,31 @@
+main {
+		aside {
+				height: 100%;
+				width: 15%;
+				position: fixed;
+				z-index: 1; 
+				top: 0; 
+				right: 0;
+				overflow-x: hidden; /* Disable horizontal scroll */
+
+				nav#TableOfContents {
+						position: absolute;
+						margin: 0 5%;
+						width: 90%;
+						top: 10%;
+						font-size: 0.9em;
+						background-color: #eee;
+						
+						ul {
+								padding-left: 5%;
+								list-style-type: none;
+						}
+
+						li {
+								a:hover {
+										color: #064579;
+								}
+						}
+				}
+		}
+}
