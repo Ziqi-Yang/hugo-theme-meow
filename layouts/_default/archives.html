@@ -1,0 +1,46 @@
+{{ define "t_headers"}}
+{{ $style := resources.Get "scss/archives.scss" | resources.ToCSS | resources.Minify }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}
+
+{{ define "main" }}
+<main>
+	<header >
+		<h1>{{ .Title }}</h1>
+		{{- if .Description }}
+		<div>
+			{{ .Description }}
+		</div>
+		{{- end }}
+	</header>
+
+{{- $pages := .Site.RegularPages }}
+
+	<section>
+{{- range $pages.GroupByPublishDate "2006" }}
+{{- if ne .Key "0001" }}
+<div class="archive-year">
+  <h2 class="archive-year-header">
+    {{- replace .Key "0001" "" }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup>
+  </h2>
+  {{- range .Pages.GroupByDate "January" }}
+  <div class="archive-month">
+    <h3 class="archive-month-header">{{- .Key }}<sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup></h3>
+    <div class="archive-posts">
+      {{- range .Pages }}
+      {{- if eq .Kind "page" }}
+      <a class="archive-entry" href='{{.Permalink}}'>
+          {{- .Title | markdownify }}
+          {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+      </a><br/>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+  {{- end }}
+</div>
+{{end}}
+{{end}}
+	</section>
+</main>
+{{ end }}

@@ -1,0 +1,30 @@
+@import "variables";
+div.archive-year {
+		padding-left: 1rem;
+		border-left: 3px solid $color-pumpkin;
+		> h2.archive-year-header {
+				color: $color-pumpkin;
+		}
+
+		> div.archive-month {
+				padding-left: 1rem;
+				border-left: 3px solid $color-wisteria;
+
+				> h3.archive-month-header {
+						color: $color-wisteria;
+				}
+
+				> div.archive-posts {
+						padding-left: 0.2rem;
+						> a {
+								color: $color-deep-black;
+						}
+
+						> a::before {
+								content: "📜";
+								margin: 0 0.2rem 0 0;
+						}
+				}
+
+		}
+}

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
 @import "variables";
 
 html {
@@ -121,6 +122,10 @@ a {
 		&:hover::after {
 				width: 100%;
 		}
+}
+
+a.color-fg {
+		color: black;
 }
 
 

@@ -11,13 +11,13 @@
 		<p>{{ $.Site.Params.description }}</p>
     {{- end -}}
 </header>
-<hr id="mainHr"/>
 <div class="indexes">
 	{{range .Site.Sections}}
 	<!-- dont look into posts section, since It contains all the posts of all sections -->
 	{{if not (eq .Section "posts")}}
+	{{$sec := .Section}}
 	<div id="section-card">
-		<h2>{{.Section}}</h2>
+		<h2><a href='{{with .Site.GetPage "section" $sec}}{{.Permalink}}{{end}}' class='color-fg'>{{.Section}}</a></h2>
 		<ul class="contents">
 			<!-- display first 10 pages -->
 			{{ $postLimit := 10}}
@@ -28,7 +28,6 @@
 			{{ end }}
 
 			{{if gt (len .Paginator.Pages) $postLimit }}
-			{{$sec := .Section}}
 			<a href='{{with .Site.GetPage "section" $sec}}{{.Permalink}}{{end}}'>More
 			</a>
 			{{end}}
