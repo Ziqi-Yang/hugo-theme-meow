@@ -161,3 +161,15 @@ div.highlight {
 				margin: 0.3em 0;
 		}
 }
+
+img, video {
+    // max-width: 100%;
+		display: block;
+		margin: 0 auto;
+		width: 50%;
+}
+
+figcaption {
+		text-align: center;
+		color: $color-grey;
+}
