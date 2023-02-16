@@ -16,23 +16,24 @@
 	{{range .Site.Sections}}
 	<!-- dont look into posts section, since It contains all the posts of all sections -->
 	{{if not (eq .Section "posts")}}
-	<h2>{{.Section}}</h2>
-	<ul class="contents">
-		<!-- display first 10 pages -->
-		{{ $postLimit := 10}}
-    {{ range first $postLimit .Paginator.Pages }}
-    <li>
-			<a href='{{.Permalink}}'>{{.Title}}</a>
-		</li>
-    {{ end }}
+	<div id="section-card">
+		<h2>{{.Section}}</h2>
+		<ul class="contents">
+			<!-- display first 10 pages -->
+			{{ $postLimit := 10}}
+			{{ range first $postLimit .Paginator.Pages }}
+			<li>
+				<a href='{{.Permalink}}'>{{.Title}}</a>
+			</li>
+			{{ end }}
 
-		{{if gt (len .Paginator.Pages) $postLimit }}
-		{{$sec := .Section}}
-		<a href='{{with .Site.GetPage "section" $sec}}{{.Permalink}}{{end}}'>More
-		</a>
-		{{end}}
-  </ul>
-	<hr/>
+			{{if gt (len .Paginator.Pages) $postLimit }}
+			{{$sec := .Section}}
+			<a href='{{with .Site.GetPage "section" $sec}}{{.Permalink}}{{end}}'>More
+			</a>
+			{{end}}
+		</ul>
+	</div>
 	{{end}}
 	{{end}}
 </div>

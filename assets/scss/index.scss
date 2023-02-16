@@ -1,3 +1,27 @@
+@import "variables";
+
 hr#mainHr {
 		height: 0.13rem;
+}
+
+div.indexes {
+		display: flex;
+		flex-flow: row wrap;
+		div#section-card {
+				background-color: $color-bg-alt;
+				border-radius: 1rem;
+				margin: 0.3rem 0.2rem;
+				padding: 0.1rem 1rem;
+				flex: 1 0 35%;
+				// make li bullet appeats on the left of first line when there is a line wrap
+				li {
+						display: flex;
+						align-items: start;
+						margin: 0;
+				}
+				li::before {
+						content: "•";
+						margin-right: 0.5em;
+				}
+		}
 }
