@@ -16,7 +16,7 @@
 	{{range .Site.Sections}}
 	<!-- dont look into posts section, since It contains all the posts of all sections -->
 	{{if not (eq .Section "posts")}}
-	<h3>{{.Section}}</h3>
+	<h2>{{.Section}}</h2>
 	<ul class="contents">
 		<!-- display first 10 pages -->
 		{{ $postLimit := 10}}
