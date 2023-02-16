@@ -1,0 +1,11 @@
+@import "variables";
+
+.terms-tags li {
+    display: inline-block;
+		background: $color-light-white;
+		border-radius: 0.5rem;
+    margin: 0 0.5rem;
+    font-weight: 500;
+		padding: 0.2rem 0.6rem;
+}
+

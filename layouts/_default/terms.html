@@ -1,0 +1,29 @@
+{{/* /tags/ */}}
+{{/* /categories/ */}}
+
+{{ define "t_headers"}}
+{{ $style := resources.Get "scss/terms.scss" | resources.ToCSS | resources.Minify }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}
+
+{{ define "main" }}
+  <main>
+		<header>
+			<h1>All {{ .Type }}</h1>
+		</header>
+		<section>
+			<ul class="terms-tags">
+				{{- $type := .Type }}
+				{{- range $key, $value := .Data.Terms.Alphabetical }}
+				{{- $name := .Name }}
+				{{- $count := .Count }}
+				{{- with site.GetPage (printf "/%s/%s" $type $name) }}
+				<li>
+					<a href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+				</li>
+				{{- end }}
+				{{- end }}
+			</ul>
+		</section>
+  </main>
+{{ end }}

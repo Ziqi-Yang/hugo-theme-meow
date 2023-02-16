@@ -1,12 +1,36 @@
+{{/* /tags/term/ */}}
+{{/* /categories/term/ */}}
+
+{{ define "t_headers"}}
+{{ $style := resources.Get "scss/term.scss" | resources.ToCSS | resources.Minify }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}
+
 {{ define "main" }}
-  <div class="container">
-    <h1>All posts for {{ .Type | singularize }} "{{ .Title }}"</h1>
-    <ul>
-      {{ range .Data.Pages }}
-        <li>
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
-      {{ end }}
-    </ul>
-  </div>
+<main>
+	<header>
+		<h1>All posts for {{ .Type | singularize }}&nbsp;"<span class='taxonomy_name'>{{ .Title }}</span>"</h1>
+		{{ if ne .Kind "taxonomy"}} 
+    <div class="count">Total {{ len .Pages }} posts</div>
+    {{ end }}
+	</header>
+	<section>
+		<div class="page-overview-list">
+			{{ range .Paginator.Pages }}
+			<div class="item">
+				<a class="head" href="{{.Permalink}}">
+					<span>📄 {{.Title}} <sup>{{if not .IsPage}}{{len .Pages}}{{ end }}</sup></span>
+				</a>
+				{{if .IsPage}}
+				<div class="desc">
+					C:<span class="date">{{ .Date.Format "2006-01-02" }}</span>
+					M:<span class="date">{{ .Lastmod.Format "2006-01-02" }}</span>
+				</div>
+				<div class="summary">{{ .Summary | markdownify  }}</div>
+				{{end}}
+			</div>
+			{{ end }}
+		</div>
+	</section>
+<main>
 {{ end}}

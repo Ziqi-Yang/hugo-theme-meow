@@ -1,5 +1,11 @@
 * TODOs
 ** TODO support custom section position in the homepage
+** Math support
+** Support Search
+title, tags, content
+** Show related information like visited number, last modified date in archive
+** Show visit numbers
+** Support Discussion
 
 * Hugo Theme Turotial
 1. https://cloudcannon.com/community/learn/hugo-tutorial/
