@@ -4,28 +4,4 @@ span.taxonomy_name {
 		color: $color-pumpkin;
 }
 
-div.page-overview-list {
-		display: flex;
-		flex-flow: row wrap;
-		> div.item {
-				flex: 1 0 26%;
-				margin: 0.5rem 0.9rem;
-				font-size: $font-size-base * 0.75;
-				padding: 0.5rem 0.7rem;
-				background: $color-light-white;
-				border-radius: 0.6rem;
-
-				> a.head {
-						font-size: $font-size-base * 0.95;
-						margin: 0 0 0.3rem 0;
-				}
-
-				> div.desc {
-						color: $color-grey;
-				}
-
-				> div.summary {
-						margin: 0.3rem 0;
-				}
-		}
-}
+@import "partials/list-posts-overview"

@@ -1,0 +1,18 @@
+{{/* - partial "partials/gettags.html" (dict "context" . "showCategories" false) */}}
+
+<div class="ctgtag-container">
+	{{if .showCategories}}
+	<div class="ctg">
+		{{ range .context.Params.categories }}
+		<a href="/categories/{{ . | urlize }}">{{ . }}</a>
+		{{ end }}
+	</div>
+	{{end}}
+	<div class="tag">
+		{{ range .context.Params.tags }}
+		<div class="entry">
+			<a href="/tags/{{ . | urlize }}">{{ . }}</a>
+		</div>
+		{{ end }}
+	</div>
+</div>

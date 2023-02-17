@@ -1,12 +1,36 @@
 {{/* corresponding directory /content/x/ or url /x/ */}}
+
+{{ define "t_headers"}}
+{{ $style := resources.Get "scss/section.scss" | resources.ToCSS | resources.Minify }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}
+
 {{ define "main" }}
-  <main>
-      {{ .Content }}
-          <ul class="contents">
-          {{ range .Paginator.Pages }}
-              <li>{{.Title}}
-              </li>
-          {{ end }}
-          </ul>
-  </main>
+<main>
+	<header>
+		<h1>{{ .Type }}</h1>
+		<div class="content">{{.Content}}</div>
+		<div class="count">Total {{ len .Pages }} posts</div>
+	</header>
+	<section>
+		<div class="list-posts-overview">
+			{{ range .Paginator.Pages }}
+			<div class="item">
+				<a class="head" href="{{.Permalink}}">
+					<span>📄 {{.Title}} <sup>{{if not .IsPage}}{{len .Pages}}{{ end }}</sup></span>
+				</a>
+				{{if .IsPage}}
+				<div class="desc">
+					C:<span class="date">{{ .Date.Format "2006-01-02" }}</span>
+					M:<span class="date">{{ .Lastmod.Format "2006-01-02" }}</span>
+				</div>
+
+				{{- partial "partials/gettags.html" (dict "context" . "showCategories" false)}}
+				<div class="summary">{{ .Summary | markdownify  }}</div>
+				{{end}}
+			</div>
+			{{ end }}
+		</div>
+	</section>
+</main>
 {{ end }}
