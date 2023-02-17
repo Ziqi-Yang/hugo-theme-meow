@@ -15,24 +15,7 @@
     {{ end }}
 	</header>
 	<section>
-		<div class="list-posts-overview">
-			{{ range .Paginator.Pages }}
-			<div class="item">
-				<a class="head" href="{{.Permalink}}">
-					<span>📄 {{.Title}} <sup>{{if not .IsPage}}{{len .Pages}}{{ end }}</sup></span>
-				</a>
-				{{if .IsPage}}
-				<div class="desc">
-					C:<span class="date">{{ .Date.Format "2006-01-02" }}</span>
-					M:<span class="date">{{ .Lastmod.Format "2006-01-02" }}</span>
-				</div>
-
-				{{- partial "partials/gettags.html" (dict "context" . "showCategories" false)}}
-				<div class="summary">{{ .Summary | markdownify  }}</div>
-				{{end}}
-			</div>
-			{{ end }}
-		</div>
+		{{- partial "partials/list-posts-overview.html" (dict "context" . "useContextPages" true)}}
 	</section>
 <main>
 {{ end}}

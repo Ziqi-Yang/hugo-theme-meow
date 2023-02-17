@@ -32,7 +32,9 @@
       <a class="archive-entry" href='{{.Permalink}}'>
           {{- .Title | markdownify }}
           {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-      </a><br/>
+      </a>
+			{{- partial "partials/gettags.html" (dict "context" . "showCategories" false)}}
+			<br/>
       {{- end }}
       {{- end }}
     </div>

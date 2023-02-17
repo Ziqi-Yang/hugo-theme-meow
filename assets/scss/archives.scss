@@ -24,6 +24,22 @@ div.archive-year {
 								content: "📄";
 								margin: 0 0.2rem 0 0;
 						}
+
+
+						> div.ctgtag-container {
+								display: inline-block;
+								> div.tag {
+										display: flex;
+										flex-flow: row wrap;
+										> div.entry {
+												font-size: $font-size-base * 0.8;
+												margin: 0 0.1rem;
+												padding: 0.1rem 0.3rem;
+												border-radius: 0.2rem;
+												background: transparentize( $color-darker-white, 0.4);
+										}
+								}
+				}
 				}
 
 		}

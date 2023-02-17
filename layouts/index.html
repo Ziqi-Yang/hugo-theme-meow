@@ -12,8 +12,7 @@
 </header>
 <div class="indexes">
 	{{range .Site.Sections}}
-	<!-- dont look into posts section, since It contains all the posts of all sections -->
-	{{if not (eq .Section "posts")}}
+	{{if .Section | in $.Site.Params.homepage.sections}}
 	{{$sec := .Section}}
 	<div id="section-card">
 		<h2><a href='{{with .Site.GetPage "section" $sec}}{{.Permalink}}{{end}}' class='color-fg'>{{.Section}}<sup><strong><sup>{{ len .Pages }}</sup></strong></sup></a></h2>

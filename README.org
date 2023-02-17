@@ -1,11 +1,13 @@
 * TODOs
-** TODO support custom section position in the homepage
-** Math support
-** Support Search
+** DONE support custom section position in the homepage
+CLOSED: [2023-02-17 Fri 20:33]
+** [#B] Math support
+** [#C] Support Search
 title, tags, content
-** Show related information like visited number, last modified date in archive
-** Show visit numbers
-** Support Discussion
+** [#B] Show related information like visited number, last modified date in archive
+** [#B] Show visit numbers
+** [#A] local gist client
+** [#A] Support Discussion
 * Other Awesome Hugo Themes
 1. https://github.com/loveminimal/hugo-theme-virgo
 * Hugo Theme Turotial
