@@ -17,8 +17,9 @@ main {
 						width: 90%;
 						top: 5%;
 						font-size: 0.9em;
-						border-top: 2px solid $color-grey;
-						border-bottom: 2px solid $color-grey;
+						a {
+								color: $color-grey;
+						}
 
 						ul {
 								margin: 0.3rem 0;
@@ -30,11 +31,10 @@ main {
 								list-style: none;
 						}
 
-
-						> ul {
-								margin: 0.3rem 0.6rem;
-								> li {
-										margin: 0;
+						li.toc-active {
+								a {
+										color: $color-pumpkin;
+										font-weight: bold;
 								}
 						}
 				}

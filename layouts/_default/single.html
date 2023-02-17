@@ -12,7 +12,17 @@
 			{{ .Content }}
     </article>
     <aside>
-			{{ .TableOfContents }}
+			{{if ge (len .TableOfContents) 100}}
+			{{with .TableOfContents}}
+			{{ . }}
+			{{end}}
+			{{end}}
     </aside>
 </main>
+{{ end }}
+
+
+{{ define "foot" }}
+{{ $js := resources.Get "js/single.js" | minify }}
+<script src="{{ $js.RelPermalink }}"></script>
 {{ end }}

@@ -1,6 +1,5 @@
 * TODOs
 ** TODO support custom section position in the homepage
-** foot navigation
 ** Math support
 ** Support Search
 title, tags, content
