@@ -1,4 +1,15 @@
 @import "variables";
 
+div.section-tags {
+		display: flex;
+		flex-flow: row wrap;
+		margin: 0.3rem 0;
+		> div.entry {
+				margin: 0 0.2rem;
+				padding: 0.1rem 0.4rem;
+				border-radius: 0.2rem;
+				background-color: $color-light-white;
+		}
+}
 
 @import "partials/list-posts-overview";

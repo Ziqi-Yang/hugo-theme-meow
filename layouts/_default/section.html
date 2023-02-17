@@ -6,11 +6,33 @@
 {{ end }}
 
 {{ define "main" }}
+
+{{/* get all tags in the current section */}}
+{{ $tags := slice }}
+{{ $currentSection := .Section }}
+
+{{ range .Site.Taxonomies.tags }}
+  {{ range .Pages }}
+    {{ if eq .Section $currentSection }}
+      {{ range .Params.tags }}
+        {{ $tags = $tags | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 <main>
 	<header>
 		<h1>{{ .Type }}</h1>
 		<div class="content">{{.Content}}</div>
 		<div class="count">Total {{ len .Pages }} posts</div>
+		<div class="section-tags">
+			{{ range ( $tags | uniq ) }}
+			<div class="entry">
+				<a href="/tags/{{ . | urlize }}">{{ . }}</a>
+			</div>
+			{{ end }}
+		</div>
 	</header>
 	<section>
 		<div class="list-posts-overview">
