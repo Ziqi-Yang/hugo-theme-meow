@@ -10,14 +10,24 @@ div.indexes {
 				padding: 0.1rem 1rem;
 				flex: 1 0 35%;
 				// make li bullet appeats on the left of first line when there is a line wrap
-				li {
+				> div.contents {
 						display: flex;
-						align-items: start;
-						margin: 0;
-				}
-				li::before {
-						content: "•";
-						margin-right: 0.5em;
+						flex-flow: row wrap;
+						margin-bottom: 0.8rem;
+						> div.entry {
+								margin: 0.2rem 0.4rem;
+								padding: 0.1rem 0.4rem;
+								border-radius: 0.4rem;
+								background: transparentize( $color-darker-white, 0.4);
+						}
+
+						> div.moreButton {
+								padding: 0.3rem 0;
+								> a {
+										font-style: italic;
+										color: $color-pumpkin;
+								}
+						}
 				}
 		}
 }
