@@ -155,10 +155,32 @@ td, th {
     border-bottom: 1px solid $color-bg-alt;
 }
 
-/* Pre and Code */
+/* code highlight */
+// inline code
+code {
+		color: $color-pumpkin;
+		padding: 0.1rem 0.2rem;
+		border: dashed $color-pumpkin 0.1rem;
+		border-radius: 0.4rem;
+}
+
+code.verbatim {
+		color: $color-wisteria;
+		border-color: $color-wisteria;
+}
+
 div.highlight {
 		margin-bottom: 1rem;
 		overflow-x: scroll;
+
+		// reset style for code
+		code {
+				color: $color-fg;
+				padding: 0 0;
+				border: none;
+				border-radius: 0;
+		}
+
 
 		pre {
 				padding: 0.3rem 0.5rem;
