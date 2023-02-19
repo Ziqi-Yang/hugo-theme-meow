@@ -5,8 +5,8 @@
 
 {{ define "main" }}
 <header>
-    {{- if $.Site.Params.theme_config.show_description -}}
-    <h1>{{ $.Site.Title }} - <small>{{ $.Site.Params.description }}</small></h1>
+    {{- if $.Site.Params.homepage.show_description -}}
+    <h1>{{ $.Site.Title }} - <small>{{ $.Site.Params.site_description }}</small></h1>
 		{{ else }}
     <h1>{{ $.Site.Title }}</h1>
     {{- end -}}
