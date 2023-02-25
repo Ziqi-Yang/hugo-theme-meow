@@ -4,16 +4,18 @@
 var tocNav = document.getElementById("TableOfContents");
 var tocLinksLi = tocNav.getElementsByTagName("a");
 
+// currently, hugo cannot render markdown files into nested html structure, but org files can
+// https://github.com/gohugoio/hugo/issues/10039
 window.addEventListener('DOMContentLoaded', () => {
 		const observer = new IntersectionObserver(entries => {
 				entries.forEach(entry => {
 						const id = entry.target.getAttribute('id');
-						let parentNode = tocNav.querySelector(`a[href="#${id}"]`).parentElement;
+						// let parentNode = entry.parentElement;
+						let tocEntry = tocNav.querySelector(`a[href="#${id}"]`).parentElement;
 						if (entry.intersectionRatio > 0) {
-								parentNode.classList.add('toc-active');
-								previousNode = parentNode;
+								tocEntry.classList.add('toc-active');
 						} else {
-								parentNode.classList.remove('toc-active');
+								tocEntry.classList.remove('toc-active');
 						}
 				});
 		});
