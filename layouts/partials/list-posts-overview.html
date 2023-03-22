@@ -4,7 +4,7 @@
 <div class="list-posts-overview">
 	{{ $pages := site.RegularPages.ByDate.Reverse}}
 	{{ if .useContextPages }}
-	  {{ $pages = .context.Paginator.Pages}}
+	  {{ $pages = .context.Pages}}
 	{{ end }}
 	{{ range  $pages}}
 	<div class="item">
